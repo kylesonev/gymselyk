@@ -74,4 +74,4 @@ for i in range(5000):
 
 df = pd.DataFrame(data, columns=['sexo', 'idade', 'peso', 'altura',
                   'nivel', 'dias_disponiveis', 'tempo_disponivel', 'split'])
-df.to_csv("data/alunos.csv", index=False)
+df.to_csv("../data/alunos.csv", index=False)
