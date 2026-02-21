@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-
+from utils.config import set_page_config
 from exercicios_lib import TREINOS
 
 
@@ -13,11 +13,11 @@ def load_model():
 
 model = load_model()
 
+set_page_config(title="Gymselyk")
 st.title("Gymselyk")
 st.markdown("""
-    #### Em busca do treino perfeito
-            
-    Preencha o formulário com seus dados:
+    #### Em busca do treino perfeito!
+    Preencha o formulário com seus dados e obtenha seu Split ideal:
 """)
 
 

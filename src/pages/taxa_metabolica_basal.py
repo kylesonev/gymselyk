@@ -1,6 +1,8 @@
 import streamlit as st
+from utils.config import set_page_config
 
-st.set_page_config(page_title="Calculadora de Calorias", page_icon="🧮")
+
+set_page_config(title="Calculadora de Calorias")
 
 st.header("Calculadora de Calorias")
 

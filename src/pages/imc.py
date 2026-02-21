@@ -1,9 +1,10 @@
 import streamlit as st
 import plotly.graph_objects as go
+from utils.config import set_page_config
 
 
-st.set_page_config(page_title="Cálculo de IMC", page_icon="🧮")
-st.header("Calculadora de IMC")
+set_page_config(title="Calculadora de IMC")
+
 with st.form("imc_calc"):
     peso = st.slider("Peso (kg)", min_value=0.0, max_value=200.0, step=0.1)
     altura = st.slider("Altura (cm)", min_value=100, max_value=250) / 100
@@ -31,7 +32,7 @@ with st.form("imc_calc"):
 
     if enviar:
         if peso and altura:
-            imc = -calcular_imc(peso, altura)
+            imc = calcular_imc(peso, altura)
             categoria = gerar_categoria(imc)
             fig = go.Figure(
                 go.Indicator(

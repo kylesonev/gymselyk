@@ -1,7 +1,9 @@
 import streamlit as st
 import plotly.graph_objects as go
+from utils.config import set_page_config
 
-st.set_page_config(page_title="Calculadora de Creatina", page_icon="🧮")
+
+set_page_config(title="Calculadora de Creatina")
 st.header("Calculadora de Creatina")
 
 with st.form("creatina_calc"):

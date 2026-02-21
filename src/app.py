@@ -1,6 +1,6 @@
 import streamlit as st
 
-pg_home = st.Page("pages/home.py", title="Início", default=True)
+pg_home = st.Page("pages/home.py", title="Treino Perfeito", default=True)
 pg_creatina = st.Page("pages/creatina.py", title="Calculadora de Creatina")
 pg_imc = st.Page("pages/imc.py", title="Cálculo de IMC")
 pg_proteina = st.Page("pages/proteina.py", title="Meta de Proteína")

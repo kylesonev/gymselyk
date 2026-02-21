@@ -1,7 +1,9 @@
 import plotly.graph_objects as go
 import streamlit as st
+from utils.config import set_page_config
 
-st.set_page_config(page_title="Calculadora de Proteína", page_icon="🧮")
+
+set_page_config(title="Calculadora de Proteína")
 
 st.header("Meta de Proteína Diária")
 
