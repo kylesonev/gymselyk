@@ -6,6 +6,27 @@ set_page_config(title="Calculadora de Calorias")
 
 st.header("Calculadora de Calorias")
 
+st.markdown("""
+
+
+A Taxa Metabólica Basal (TMB) é a quantidade mínima de calorias que o corpo necessita para manter funções vitais em repouso absoluto, como respiração, circulação e atividade cerebral. 
+
+Representando cerca de 60% a 75% do gasto energético diário, a TMB é influenciada por idade, sexo, genética e composição corporal (mais músculos aumentam o gasto).
+
+""")
+
+st.markdown("""
+##### Homens
+$$
+TMB = (10 * peso (kg)) + (6.25 * altura (cm)) - (5 * idade (anos)) + 5
+$$
+
+##### Mulheres
+$$
+TMB = (10 * peso (kg)) + (6.25 * altura (cm)) - (5 * idade (anos)) - 161
+$$
+""")
+
 with st.form("calorias"):
     peso = st.slider("Peso (kg)", min_value=0.0, max_value=300.0, step=0.1)
     altura = st.slider("Altura (cm)", min_value=100, max_value=250) / 100
@@ -49,10 +70,32 @@ with st.form("calorias"):
 
         return None
 
-    if enviar:
-        if peso and altura and idade and sexo and atividade:
-            taxa_metabolica_basal = calcular_taxa_basal(peso, altura, sexo)
-            gasto_calorico = calcular_gasto_calorico(taxa_metabolica_basal, atividade)
 
-            st.info(f"Taxa Metabólica Basal: {taxa_metabolica_basal:.2f}")
-            st.info(f"Gasto Calórico Total Diário: {gasto_calorico:.2f}")
+if enviar:
+    st.markdown("""
+    #### Cálculo Realizado
+    """)
+    if peso and altura and idade and sexo and atividade:
+        taxa_metabolica_basal = calcular_taxa_basal(peso, altura, sexo)
+        gasto_calorico = calcular_gasto_calorico(taxa_metabolica_basal, atividade)
+
+        st.info(f"Taxa Metabólica Basal: {taxa_metabolica_basal:.2f}")
+        st.info(f"Gasto Calórico Total Diário: {gasto_calorico:.2f}")
+
+    st.markdown("""
+    O gasto calórico diário é a quantidade total de energia que o corpo utiliza ao 
+    longo de um dia para manter suas funções vitais e realizar atividades. 
+    Essa energia é medida em calorias (kcal) e varia de pessoa para pessoa.
+
+
+    Fator de Atividade:
+
+    * **Sedentário** (pouco ou nenhum exercício): TMB * 1,2
+
+    * **Levemente ativo** (exercício leve 1-3 dias/semana): TMB * 1,375
+
+    * **Moderadamente ativo** (exercício moderado 3-5 dias/semana): TMB * 1,55
+
+    * **Muito ativo** (exercício intenso 6-7 dias/semana): TMB * 1,99
+
+    """)

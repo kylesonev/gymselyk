@@ -5,6 +5,21 @@ from utils.config import set_page_config
 
 set_page_config(title="Calculadora de IMC")
 
+st.header("Cálculadora de IMC")
+
+st.markdown("""
+
+O **IMC** (Índice de Massa Corporal) é uma medida internacional adotada pela OMS para avaliar se um adulto está no peso ideal, dividindo o **peso (kg)** pela **altura ao quadrado (m²)**. 
+
+Ele categoriza o estado nutricional em faixas como **abaixo do peso**, **peso normal** *(18,5 - 24,9)*, **sobrepeso** ou **obesidade**, ajudando a identificar riscos à saúde.
+
+""")
+
+st.markdown(r"""
+$$
+IMC = \frac{peso}{altura^2}
+$$
+""")
 with st.form("imc_calc"):
     peso = st.slider("Peso (kg)", min_value=0.0, max_value=200.0, step=0.1)
     altura = st.slider("Altura (cm)", min_value=100, max_value=250) / 100
